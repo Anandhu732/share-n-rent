@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { toast } from '@/components/ui/use-toast';
 
-const baseURL = 'http://127.0.0.1:8000/api';
+// Allow configuration of API URL through environment variable or default to local development
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
 
 const api = axios.create({
-  baseURL,
+  baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
   },

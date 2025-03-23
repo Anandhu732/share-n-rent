@@ -1,69 +1,72 @@
-# Welcome to your Lovable project
 
-## Project info
+# ShareRent - P2P Rental Platform
 
-**URL**: https://lovable.dev/projects/09eca057-578c-4be1-8176-8e4007795704
+ShareRent is a peer-to-peer platform for renting items in your community.
 
-## How can I edit this code?
+## Connecting to Django Backend
 
-There are several ways of editing your application.
+This application is configured to connect to a Django backend API. Follow these steps to set up the connection:
 
-**Use Lovable**
+1. Make sure your Django backend is running and accessible.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/09eca057-578c-4be1-8176-8e4007795704) and start prompting.
+2. Create a `.env` file in the root directory of this project with the following content:
+   ```
+   VITE_API_URL=http://your-django-backend-url/api
+   ```
+   Replace `http://your-django-backend-url/api` with the actual URL of your Django API.
 
-Changes made via Lovable will be committed automatically to this repo.
+3. If you're running the Django backend locally on the default port, you can use:
+   ```
+   VITE_API_URL=http://127.0.0.1:8000/api
+   ```
 
-**Use your preferred IDE**
+4. Make sure your Django API has a health check endpoint at `/api/health-check/` that returns a 200 status code.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+5. Start the React application:
+   ```
+   npm run dev
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## API Configuration
 
-Follow these steps:
+The frontend expects the following API endpoints on your Django backend:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- Authentication:
+  - `/api/auth/login/`
+  - `/api/auth/register/`
+  - `/api/auth/profile/`
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Items:
+  - `/api/items/`
+  - `/api/items/:id/`
+  - `/api/categories/`
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Bookings:
+  - `/api/bookings/`
+  - `/api/bookings/:id/`
+  - `/api/bookings/:id/cancel/`
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- Reviews:
+  - `/api/reviews/`
+  - `/api/reviews/:id/`
 
-**Edit a file directly in GitHub**
+## Django Backend Requirements
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Your Django backend should:
 
-**Use GitHub Codespaces**
+1. Use Django REST Framework
+2. Implement JWT authentication
+3. Return tokens in the format: `{ token: "your-jwt-token" }`
+4. Handle CORS for cross-origin requests from the frontend
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Development
 
-## What technologies are used for this project?
+- Run development server:
+  ```
+  npm run dev
+  ```
 
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/09eca057-578c-4be1-8176-8e4007795704) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- Build for production:
+  ```
+  npm run build
+  ```
