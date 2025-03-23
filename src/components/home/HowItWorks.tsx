@@ -7,7 +7,7 @@ const steps = [
   {
     id: 'find',
     title: 'Find What You Need',
-    description: 'Browse thousands of items available for rent in your area. Use filters to find exactly what you're looking for.',
+    description: "Browse thousands of items available for rent in your area. Use filters to find exactly what you're looking for.",
     icon: <Search />,
     color: 'bg-blue-500'
   },
@@ -44,7 +44,7 @@ const steps = [
 const benefits = [
   {
     title: 'Save Money',
-    description: 'Why buy expensive items you'll rarely use? Rent and save hundreds of dollars.',
+    description: "Why buy expensive items you'll rarely use? Rent and save hundreds of dollars.",
     icon: <CreditCard className="h-5 w-5" />,
   },
   {

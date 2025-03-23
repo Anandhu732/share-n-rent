@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { 
@@ -155,7 +154,7 @@ const mockItem: ItemProps = {
         name: 'David Kim',
       },
       rating: 4,
-      comment: 'Great camera, just what I needed for my family reunion. Only giving 4 stars because the extra battery wasn't fully charged, but otherwise excellent.',
+      comment: "Great camera, just what I needed for my family reunion. Only giving 4 stars because the extra battery wasn't fully charged, but otherwise excellent.",
       date: '2023-05-30',
     },
   ],
@@ -754,146 +753,4 @@ const ItemDetails = () => {
                           Service fee
                         </span>
                         <span className="text-gray-900 dark:text-gray-100">
-                          {item.currency}{Math.round(item.price * totalDays * 0.1)}
-                        </span>
-                      </div>
-                      <Separator className="my-2" />
-                      <div className="flex justify-between font-semibold">
-                        <span>Total</span>
-                        <span>
-                          {item.currency}{Math.round(item.price * totalDays * 1.1)}
-                        </span>
-                      </div>
-                    </div>
-                  )}
-                  
-                  <Button 
-                    className="w-full h-11 bg-blue-600 hover:bg-blue-700 text-white"
-                    onClick={handleBookNow}
-                  >
-                    {selectedDates.startDate && selectedDates.endDate 
-                      ? 'Book Now' 
-                      : 'Select Dates'}
-                  </Button>
-                  
-                  <div className="text-center text-xs text-gray-500 dark:text-gray-400">
-                    You won't be charged yet
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Owner Information */}
-            <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-subtle overflow-hidden">
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-4">About the Owner</h3>
-                
-                <div className="flex items-center mb-4">
-                  <div className="h-12 w-12 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden mr-4">
-                    {item.owner.avatar ? (
-                      <img 
-                        src={item.owner.avatar} 
-                        alt={item.owner.name} 
-                        className="h-full w-full object-cover" 
-                      />
-                    ) : (
-                      <div className="h-full w-full flex items-center justify-center text-sm font-medium text-gray-600 dark:text-gray-300">
-                        {item.owner.name.charAt(0).toUpperCase()}
-                      </div>
-                    )}
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-medium text-gray-900 dark:text-gray-100">
-                      {item.owner.name}
-                    </h4>
-                    <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mt-1">
-                      <Star className="h-3.5 w-3.5 text-yellow-500 fill-current mr-1" />
-                      <span>{item.owner.rating}</span>
-                      <span className="mx-1">•</span>
-                      <span>Member since {item.owner.memberSince}</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="space-y-3 text-sm">
-                  <div className="flex">
-                    <Clock className="h-4 w-4 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" />
-                    <div>
-                      <span className="text-gray-900 dark:text-gray-100 font-medium">
-                        Response time:
-                      </span>{' '}
-                      <span className="text-gray-600 dark:text-gray-400">
-                        Usually responds {item.owner.responseTime}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex">
-                    <BarChart className="h-4 w-4 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" />
-                    <div>
-                      <span className="text-gray-900 dark:text-gray-100 font-medium">
-                        Response rate:
-                      </span>{' '}
-                      <span className="text-gray-600 dark:text-gray-400">
-                        {item.owner.responseRate}%
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex">
-                    <MapPin className="h-4 w-4 text-gray-500 dark:text-gray-400 mr-2 mt-0.5" />
-                    <div>
-                      <span className="text-gray-900 dark:text-gray-100 font-medium">
-                        Location:
-                      </span>{' '}
-                      <span className="text-gray-600 dark:text-gray-400">
-                        {item.location}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                
-                <Button 
-                  variant="outline" 
-                  className="w-full mt-4 border-gray-200 dark:border-gray-800"
-                  onClick={() => {
-                    // In a real app, we would implement messaging functionality
-                    toast({
-                      title: 'Feature coming soon',
-                      description: 'Messaging functionality is under development.',
-                      variant: 'default',
-                    });
-                  }}
-                >
-                  <MessageCircle className="h-4 w-4 mr-2" />
-                  Contact Owner
-                </Button>
-              </div>
-            </div>
-            
-            {/* Location */}
-            <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-subtle overflow-hidden">
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Location</h3>
-                
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-200 dark:bg-gray-800 mb-3">
-                  {/* Map placeholder - would be an actual map in a real app */}
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-500 dark:text-gray-400">
-                    Map of {item.location}
-                  </div>
-                </div>
-                
-                <p className="text-gray-700 dark:text-gray-300 text-sm">
-                  Exact location provided after booking.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default ItemDetails;
+                          {item.currency}{Math.round(item.price * totalDays * 0
