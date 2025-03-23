@@ -1,9 +1,10 @@
-import Navbar from '@/components/home/Navbar';
+
+import Navbar from '@/components/layout/Navbar';
 import Hero from '@/components/home/Hero';
 import CategorySection from '@/components/home/CategorySection';
 import FeaturedItems from '@/components/home/FeaturedItems';
 import HowItWorks from '@/components/home/HowItWorks';
-import Footer from '@/components/home/Footer';
+import Footer from '@/components/layout/Footer';
 import DjangoConnectionStatus from '@/components/DjangoConnectionStatus';
 
 const Index = () => {
