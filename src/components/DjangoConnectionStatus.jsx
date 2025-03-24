@@ -4,12 +4,8 @@ import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/components/ui/use-toast';
 import axios from 'axios';
 
-interface ConnectionStatusProps {
-  className?: string;
-}
-
-const DjangoConnectionStatus = ({ className }: ConnectionStatusProps) => {
-  const [status, setStatus] = useState<'checking' | 'connected' | 'disconnected'>('checking');
+const DjangoConnectionStatus = ({ className }) => {
+  const [status, setStatus] = useState('checking');
   const { toast } = useToast();
   const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
 
