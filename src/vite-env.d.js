@@ -11,3 +11,8 @@
  * @typedef {Object} ImportMeta
  * @property {ImportMetaEnv} env - Environment variables
  */
+
+// Add global JSX support for JavaScript files
+/**
+ * @typedef {import('react').ReactElement} JSX.Element
+ */

@@ -11,7 +11,11 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [
-    react(),
+    react({
+      // Configure JSX in JS files
+      jsxRuntime: "automatic",
+      include: "**/*.{jsx,js}",
+    }),
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
@@ -19,5 +23,6 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+    extensions: ['.js', '.jsx', '.json'] // Explicitly define extensions
   },
 }));
