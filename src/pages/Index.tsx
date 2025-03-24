@@ -5,7 +5,6 @@ import CategorySection from '@/components/home/CategorySection';
 import FeaturedItems from '@/components/home/FeaturedItems';
 import HowItWorks from '@/components/home/HowItWorks';
 import Footer from '@/components/layout/Footer';
-import DjangoConnectionStatus from '@/components/DjangoConnectionStatus';
 
 const Index = () => {
   // component logic
@@ -15,8 +14,6 @@ const Index = () => {
       <Navbar />
       
       <main className="flex-1">
-        <DjangoConnectionStatus className="fixed top-20 right-4 z-50" />
-        
         {/* Hero Section */}
         <Hero />
         
